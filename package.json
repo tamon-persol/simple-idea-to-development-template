@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
-  "workspaces":[
-    "packages/**"
-  ]
+  "scripts": {
+    "emulator:on-save": "firebase emulators:start --import=./emulator/saved-data --export-on-exit=./emulator/saved-data "
+  },
+  "workspaces":{
+    "packages": [
+      "packages/*"
+    ]
+  }
 }
