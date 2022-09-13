@@ -1,13 +1,24 @@
-import { login, register } from './authentication.useCase';
+import { signIn, createUser, deleteUser } from './authentication.useCase';
 
-describe('authentication', () => {
-  test('register', async () => {
-    const result = await register('testable@lol.com', '123456');
-    console.log(result);
-  });
+describe('authentication useCase', () => {
+  test('Valid data', async () => {
+    const validCredential = {
+      email: 'testable@lol.com',
+      password: '123456',
+    };
+    const resultCreate = await createUser(
+      validCredential.email,
+      validCredential.password
+    );
+    expect(resultCreate.isOk()).toBeTruthy();
 
-  test('test login', async () => {
-    const result = await login('test@test.com', '123456');
-    console.log(result);
+    const resultSignIn = await signIn(
+      validCredential.email,
+      validCredential.password
+    );
+    expect(resultSignIn.isOk()).toBeTruthy();
+
+    const resultDeleteUser = await deleteUser();
+    expect(resultDeleteUser.isOk()).toBeTruthy();
   });
 });
