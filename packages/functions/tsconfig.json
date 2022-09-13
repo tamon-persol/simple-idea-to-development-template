@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "../../build/functions",
+    "paths": {
+      "@/model": ["../model/src/*"]
+    },
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "target": "es2017",
+    "strictPropertyInitialization": false
+  },
+  "compileOnSave": true,
+  "include": ["src/**/*.ts",],
+}
