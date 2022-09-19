@@ -2,7 +2,7 @@ import React from 'react';
 import style from './signInScene.module.sass';
 import { useForm } from 'react-hook-form';
 import { Button, InputText } from '../../interactions';
-import * as UserContext from 'model/src/contexts/auth/application/authentication.useCase';
+import * as UserContext from '@/contexts/indentity-access/application/authentication.useCase';
 type credentials = {
   email: string;
   password: string;
@@ -12,8 +12,8 @@ function SignInScene() {
   const { handleSubmit, register } = useForm<credentials>();
 
   const submit = async (data: credentials) => {
-     const response = UserContext.signIn(data.email, data.password);
-      console.log(response);
+     const response = await UserContext.signIn(data.email, data.password);
+      console.log(response.value().toObject());
   };
 
   return (

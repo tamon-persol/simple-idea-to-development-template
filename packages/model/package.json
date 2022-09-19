@@ -23,6 +23,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.19.1",
     "babel-jest": "^29.0.3",
+    "find-up": "^6.3.0",
     "firebase": "9.9.4",
     "rich-domain": "1.12.0"
   },

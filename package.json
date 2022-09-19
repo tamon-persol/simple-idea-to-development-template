@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "emulator:on-save": "firebase emulators:start --import=./emulator/saved-data --export-on-exit=./emulator/saved-data ",
-    "test:model": "yarn workspaces model run test"
+    "test:model": "yarn run emulator:on-save & yarn workspace model run test",
+    "dev: emulator": "yarn run emulator:on-save & yarn workspace frontend dev"
   },
   "workspaces":{
     "packages": [

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 import {findUpSync}  from 'find-up';
 import dotenv  from 'dotenv';
+import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
 // const find = require('find-up');
 
 const findEnv = () => {
@@ -26,7 +27,9 @@ const nextConfig = {
     MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
     APP_ID: process.env.APP_ID,
   },
+  webpack5: true,
   webpack: (config) => {
+    config.resolve.fallback = { fs: false };
     return config;
   },
   reactStrictMode: true,

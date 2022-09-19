@@ -2,14 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
-    "paths": {
-      "~@/model": [
-        "../model/src/*"
-      ],
-      "~@/contexts": [
-        "../model/src/contexts/*"
-      ]
-    },
     "composite": true,
     "incremental": true,
     "target": "ES2015",
