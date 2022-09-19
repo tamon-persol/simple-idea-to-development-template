@@ -15,5 +15,4 @@ class Authentication
    Authentication : -UID id {optional}
    Authentication : +create(AuthenticationProps) IResult<Authentication>
 
-
 ```

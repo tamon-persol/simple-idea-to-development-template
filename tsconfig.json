@@ -1,6 +1,23 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
-    "forceConsistentCasingInFileNames": true
-  }
+    "baseUrl": ".",
+    "lib": ["es2021"],
+    "module": "commonjs",
+    "target": "es2021",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/model/*": ["./packages/model/src/*"],
+      "@/contexts/*": ["./packages/model/src/contexts/*"]
+    }
+  },
+  "files": [],
+  "references": [
+    { "path": "./packages/frontend/tsconfig.json" },
+    { "path": "./packages/model/tsconfig.json" },
+    { "path": "./packages/functions/tsconfig.json" }
+  ]
+
 }

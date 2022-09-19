@@ -1,9 +1,9 @@
-import { Entity, IResult, Result, UID } from 'types-ddd';
-import AuthenticationEmail from './authentication-email.value-object';
+import { Entity, IResult, Result, UID } from 'rich-domain';
+import IsLogged from '@/contexts/indentity-access/domain/isLogged.value-object';
 
 interface AuthenticationProps {
   id?: UID;
-  email: AuthenticationEmail;
+  isLogged: IsLogged;
 }
 export class Authentication extends Entity<AuthenticationProps> {
   private constructor(props: AuthenticationProps) {

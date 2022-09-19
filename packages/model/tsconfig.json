@@ -1,18 +1,16 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es2017",
-    "baseUrl": "./",
     "composite": true,
     "declaration": true,
     "declarationMap": true,
     "incremental": true,
-    "paths": {
-      "@/shared": ["./shared/*"]
-    },
+    "strict": false,
     "outDir": "../../build/model",
     "module": "commonjs"
   },
-  "include": ["src"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"],
   "compileOnSave": true
 }

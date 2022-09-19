@@ -4,7 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "emulator:on-save": "firebase emulators:start --import=./emulator/saved-data --export-on-exit=./emulator/saved-data "
+    "emulator:on-save": "firebase emulators:start --import=./emulator/saved-data --export-on-exit=./emulator/saved-data ",
+    "test:model": "yarn workspaces model run test"
   },
   "workspaces":{
     "packages": [

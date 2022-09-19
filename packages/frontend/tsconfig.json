@@ -1,28 +1,42 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
+    "rootDir": ".",
+    "paths": {
+      "~@/model": [
+        "../model/src/*"
+      ],
+      "~@/contexts": [
+        "../model/src/contexts/*"
+      ]
+    },
     "composite": true,
     "incremental": true,
     "target": "ES2015",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "jsx": "react",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "jsx": "preserve",
     "outDir": "./dist",
-    "strict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node",
-    "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "./types",
-    "skipLibCheck": true,
-    "paths": {
-      "~@/*": ["./src/*"]
+    "allowJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": false
+  },
+  "references": [
+    {
+      "path": "../model/tsconfig.json"
     }
-  }
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

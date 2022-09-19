@@ -1,5 +1,8 @@
-const path = require('path');
+// import { findUpSync } from 'find-up';
+import dotenv from 'dotenv';
+// const find = require('find-up');
+import path from 'path';
 
-export const getConfig = () => {
-  require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+export const findEnv = () => {
+  dotenv.config({ path: path.join(__dirname, '..', '..', '..', '..', '.env') });
 };

@@ -1,0 +1,27 @@
+.container {
+  margin: 16px;
+  position: relative;
+}
+.container input[type=text] {
+  height: 40px;
+  border-radius: 20px;
+  padding: 4px 8px;
+  border: none;
+  border-bottom: 1px solid;
+  box-shadow: inset black 4px 2px 4px, inset black -4px -2px 4px;
+  background: transparent;
+}
+.container input[type=text]:focus {
+  border: red 1px solid;
+  background: red;
+}
+.container label {
+  color: black;
+  position: absolute;
+  background-color: white;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=inputText.module.css.map */

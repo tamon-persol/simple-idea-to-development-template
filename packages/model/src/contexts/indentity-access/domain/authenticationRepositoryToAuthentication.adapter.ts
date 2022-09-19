@@ -1,22 +1,20 @@
-import { IAdapter, ID, IResult, Result } from 'types-ddd';
+import { IAdapter, ID, IResult, Result } from 'rich-domain';
 import { UserCredential } from '@firebase/auth';
 import Authentication from './authentication.entity';
-import AuthenticationEmail from './authentication-email.value-object';
+import IsLogged from '@/contexts/indentity-access/domain/isLogged.value-object';
 
 export class AuthenticationRepositoryToAuthentication
   implements IAdapter<UserCredential, Authentication>
 {
   build(target: UserCredential): IResult<Authentication> {
-    const email = AuthenticationEmail.create({
-      value: target.user.email,
-    });
-    if (email.isFail()) {
-      return Result.fail(email.error());
+    const isLogged = IsLogged.create(Boolean(target.user));
+    if (isLogged.isFail()) {
+      return Result.fail(isLogged.error());
     }
 
     return Authentication.create({
       id: ID.create(target.user.getIdToken()),
-      email: email.value(),
+      isLogged: isLogged.value(),
     });
   }
 }

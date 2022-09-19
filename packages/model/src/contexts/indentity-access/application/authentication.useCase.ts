@@ -1,8 +1,8 @@
-import * as firebaseRepository from '../infra/repository/authentication.repository';
-import AuthenticationRepositoryToAuthentication from '../domain/authenticationRepositoryToAuthentication.adapter';
-import { IResult, Result } from 'types-ddd';
-import Authentication from '../domain/authentication.entity';
-import { firebaseAuth } from '../../../shared/firebase';
+import * as firebaseRepository from '@/contexts/indentity-access/infra/repository/authentication.repository';
+import AuthenticationRepositoryToAuthentication from '@/contexts/indentity-access/domain/authenticationRepositoryToAuthentication.adapter';
+import { IResult, Result } from 'rich-domain';
+import Authentication from '@/contexts/indentity-access/domain/authentication.entity';
+import { firebaseAuth } from '@/model/shared/firebase';
 
 export const createUser = async (
   email: string,

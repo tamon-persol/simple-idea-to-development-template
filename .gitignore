@@ -56,4 +56,4 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-!/packages/model/src/config/.env
+!/.env

@@ -3,9 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "../../build/functions",
-    "paths": {
-      "@/model": ["../model/src/*"]
-    },
     "moduleResolution": "node",
     "module": "commonjs",
     "noImplicitReturns": true,

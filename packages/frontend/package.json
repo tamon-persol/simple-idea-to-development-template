@@ -9,27 +9,42 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "find-up": "^6.3.0",
+    "fs": "^0.0.1-security",
+    "helmet": "^6.0.0",
+    "model": "*",
     "next": "12.2.4",
+    "next-connect": "^0.13.0",
+    "next-transpile-modules": "^9.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "yarn-deduplicate": "^6.0.0"
+    "react-hook-form": "7.35.0",
+    "yarn-deduplicate": "6.0.0"
   },
   "devDependencies": {
     "@types/node": "17.0.32",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.3",
     "@typescript-eslint/eslint-plugin": "5.23.0",
-    "model": "1.0.0",
+    "dotenv": "^16.0.2",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
-    "firebase-admin": "10.2.0",
     "husky": "8.0.1",
+    "model": "1.0.0",
     "prettier": "2.6.2",
     "sass": "1.51.0",
     "typescript": "4.7.4"
   },
   "resolutions": {
     "@types/react": "18.0.9"
+  },
+  "type": "module",
+  "peerDependencies": {},
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
