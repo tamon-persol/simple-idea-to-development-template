@@ -1,4 +1,4 @@
-import { createUser, signIn, deleteUser } from './authentication.repository';
+import { createAuth, signIn, deleteAuth } from './authentication.repository';
 import { firebaseAuth } from '@/model/shared/firebase';
 
 const testUserAccountWithValidCredential = {
@@ -8,7 +8,7 @@ const testUserAccountWithValidCredential = {
 
 describe('authentication', () => {
   test('with valid credential', async () => {
-    const userAuth = await createUser(
+    const userAuth = await createAuth(
       testUserAccountWithValidCredential.email,
       testUserAccountWithValidCredential.password
     );
@@ -22,7 +22,7 @@ describe('authentication', () => {
     expect(token).toBe(await loginUser.user.getIdToken());
     expect(loginUser.user.email).toBe(testUserAccountWithValidCredential.email);
 
-    await deleteUser(firebaseAuth.currentUser);
+    await deleteAuth(firebaseAuth.currentUser);
     const callSignIn = signIn(
       testUserAccountWithValidCredential.email,
       testUserAccountWithValidCredential.password

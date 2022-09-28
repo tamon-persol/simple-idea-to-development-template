@@ -1,10 +1,11 @@
 import { Entity, IResult, Result, UID } from 'rich-domain';
-import IsLogged from '@/contexts/indentity-access/domain/isLogged.value-object';
+import IsLogged from '@/contexts/indentity-access/domain/value-objects/isLogged.value-object';
 
 interface AuthenticationProps {
   id?: UID;
   isLogged: IsLogged;
 }
+
 export class Authentication extends Entity<AuthenticationProps> {
   private constructor(props: AuthenticationProps) {
     super(props);

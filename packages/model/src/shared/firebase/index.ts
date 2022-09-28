@@ -4,6 +4,7 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 import { getStorage, connectStorageEmulator } from 'firebase/storage';
 import { findEnv } from '../../config/config';
+
 findEnv();
 
 const clientCredentials = {
@@ -24,7 +25,7 @@ export const firebaseStorage = getStorage(app);
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   const host = 'localhost';
   connectAuthEmulator(firebaseAuth, `http://${host}:9099`);
-  // connectFirestoreEmulator(firestore, host, 8081);
+  connectFirestoreEmulator(firestore, host, 8082);
   // connectFunctionsEmulator(firebaseFunctions, host, 5002);
   // connectStorageEmulator(firebaseStorage, host, 9199);
 

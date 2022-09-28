@@ -4,9 +4,10 @@ module.exports = class CustomPlugin {
   constructor(options) {
     this.options = options;
   }
+
   apply(compiler) {
     compiler.hooks.watchRun.tap('Run Emulator again', () => {
-      if ((process.env.NODE_en = 'development')) {
+      if ((process.env.NODE_env = 'development')) {
         const ls = spawn('firebase', ['emulators:start']);
         ls.stdout.on('data', (data) => {
           console.log(`stdout: ${data}`);

@@ -8,7 +8,7 @@ import {
 import { firebaseAuth } from '@/model/shared/firebase';
 import { FirebaseError } from '@/model/shared/firebase/error';
 
-export const createUser = async (
+export const createAuth = async (
   email: string,
   password: string
 ): Promise<UserCredential> => {
@@ -30,7 +30,7 @@ export const signIn = async (
   }
 };
 
-export const deleteUser = async (user: User): Promise<void> => {
+export const deleteAuth = async (user: User): Promise<void> => {
   try {
     await deleteUserAuth(user);
   } catch (e) {

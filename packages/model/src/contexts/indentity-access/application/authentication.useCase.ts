@@ -1,15 +1,15 @@
-import * as firebaseRepository from '@/contexts/indentity-access/infra/repository/authentication.repository';
-import AuthenticationRepositoryToAuthentication from '@/contexts/indentity-access/domain/authenticationRepositoryToAuthentication.adapter';
+import * as authRepository from '@/contexts/indentity-access/infra/repository/authentication.repository';
+import AuthenticationRepositoryToAuthentication from '@/contexts/indentity-access/domain/adapters/authenticationRepositoryToAuthentication.adapter';
 import { IResult, Result } from 'rich-domain';
-import Authentication from '@/contexts/indentity-access/domain/authentication.entity';
+import Authentication from '@/contexts/indentity-access/domain/entities/authentication.entity';
 import { firebaseAuth } from '@/model/shared/firebase';
 
-export const createUser = async (
+export const createAuth = async (
   email: string,
   password: string
 ): Promise<IResult<Authentication>> => {
   try {
-    const userCredential = await firebaseRepository.createUser(email, password);
+    const userCredential = await authRepository.createAuth(email, password);
     const adapter = new AuthenticationRepositoryToAuthentication();
     return adapter.build(userCredential);
   } catch (e) {
@@ -20,19 +20,18 @@ export const createUser = async (
 export const signIn = async (
   email: string,
   password: string
-): Promise<IResult<Authentication>> => {
+): Promise<IResult<Boolean>> => {
   try {
-    const userCredential = await firebaseRepository.signIn(email, password);
-    const adapter = new AuthenticationRepositoryToAuthentication();
-    return adapter.build(userCredential);
+    await authRepository.signIn(email, password);
+    return Result.Ok(true);
   } catch (e) {
     return Result.fail(e);
   }
 };
 
-export const deleteUser = async (): Promise<IResult<Boolean>> => {
+export const deleteAuth = async (): Promise<IResult<Boolean>> => {
   try {
-    await firebaseRepository.deleteUser(firebaseAuth.currentUser);
+    await authRepository.deleteAuth(firebaseAuth.currentUser);
     return Result.Ok(true);
   } catch (e) {
     return Result.fail(e);

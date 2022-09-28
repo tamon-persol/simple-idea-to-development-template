@@ -4,11 +4,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "emulator": "firebase emulators:start",
     "emulator:on-save": "firebase emulators:start --import=./emulator/saved-data --export-on-exit=./emulator/saved-data ",
-    "test:model": "yarn run emulator:on-save & yarn workspace model run test",
-    "dev: emulator": "yarn run emulator:on-save & yarn workspace frontend dev"
+    "test:model": "firebase emulators:exec 'yarn workspace model run test'",
+    "dev:emulator": "yarn run emulator:on-save & yarn workspace frontend dev",
+    "dev-with-function:emulator:": "yarn workspace functions & yarn workspace frontend dev"
   },
-  "workspaces":{
+  "workspaces": {
     "packages": [
       "packages/*"
     ]

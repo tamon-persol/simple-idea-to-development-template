@@ -1,7 +1,7 @@
 import { IAdapter, ID, IResult, Result } from 'rich-domain';
 import { UserCredential } from '@firebase/auth';
-import Authentication from './authentication.entity';
-import IsLogged from '@/contexts/indentity-access/domain/isLogged.value-object';
+import Authentication from '@/contexts/indentity-access/domain/entities/authentication.entity';
+import IsLogged from '@/contexts/indentity-access/domain/value-objects/isLogged.value-object';
 
 export class AuthenticationRepositoryToAuthentication
   implements IAdapter<UserCredential, Authentication>

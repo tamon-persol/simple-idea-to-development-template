@@ -1,4 +1,4 @@
-import { signIn, createUser, deleteUser } from './authentication.useCase';
+import { signIn, createAuth, deleteAuth } from './authentication.useCase';
 
 describe('authentication useCase', () => {
   test('Valid data', async () => {
@@ -6,10 +6,11 @@ describe('authentication useCase', () => {
       email: 'testable@lol.com',
       password: '123456',
     };
-    const resultCreate = await createUser(
+    const resultCreate = await createAuth(
       validCredential.email,
       validCredential.password
     );
+
     expect(resultCreate.isOk()).toBeTruthy();
 
     const resultSignIn = await signIn(
@@ -18,7 +19,7 @@ describe('authentication useCase', () => {
     );
     expect(resultSignIn.isOk()).toBeTruthy();
 
-    const resultDeleteUser = await deleteUser();
+    const resultDeleteUser = await deleteAuth();
     expect(resultDeleteUser.isOk()).toBeTruthy();
   });
 });
